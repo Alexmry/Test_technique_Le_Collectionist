@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts 'Creating 100 fake shops...'
+Shop.destroy_all
+puts 'Data base is clean'
+
+
+
+10.times do
+  shop = Shop.new(
+    name: Faker::Company.name
+  )
+  shop.save!
+  puts "shop #{shop.id} is created"
+end
+puts 'Finished!'
