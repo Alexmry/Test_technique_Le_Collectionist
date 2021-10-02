@@ -2,6 +2,8 @@
 
 <ul>
   <% @days.each do |day| %>
+    <%= link_to edit_shop_day_path(@shop,day) do %>
       <li><%= day.name %> <%= day.closed == false ? "ouvert" : "fermé" %></li>
     <% end %>
+  <% end %>
 </ul>

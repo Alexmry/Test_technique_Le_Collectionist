@@ -1,0 +1,5 @@
+<%= simple_form_for [ @shop, @day ] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :closed %>
+  <%= f.submit "Submit jour", class: "btn btn-primary" %>
+<% end %>
