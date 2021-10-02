@@ -21,3 +21,35 @@ puts 'Data base is clean'
   puts "shop #{shop.id} is created"
 end
 puts 'Finished!'
+
+
+week_days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']
+
+shops_id = []
+shops = Shop.all
+shops.each do |shop|
+    shops_id << shop.id
+end
+
+puts "creating jours"
+for i in 0..6
+    day = Day.new(
+        name: week_days[i],
+        closed: false,
+        shop_id: shops_id.sample
+    )
+    day.save!
+    puts "day id #{day.id} #{day.name} is created"
+end
+puts 'Finished!'
+
+
+
+
+
+
+
+
+
+
+
