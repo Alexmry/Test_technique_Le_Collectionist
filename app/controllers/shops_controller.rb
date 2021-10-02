@@ -2,6 +2,7 @@ class ShopsController < ApplicationController
   before_action :set_shop, only: :show
 
   def show
+    @jours = Jour.all
   end
 
   private

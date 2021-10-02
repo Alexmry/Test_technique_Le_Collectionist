@@ -37,6 +37,7 @@ for i in 0..6
         name: week_days[i],
         closed: false,
         shop_id: shops_id.sample
+        #do some more research on nested seeds
     )
     day.save!
     puts "day id #{day.id} #{day.name} is created"
