@@ -1,9 +1,14 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: :show
+  before_action :set_shop, only: [:show, :edit]
 
   def show
     @days = @shop.days
   end
+
+  def edit
+    @days = @shop.days
+  end
+
 
   private
 
