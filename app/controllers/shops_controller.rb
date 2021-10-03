@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
   before_action :set_shop, only: :show
 
   def show
-    @days = Day.all
+    @days = @shop.days
   end
 
   private
