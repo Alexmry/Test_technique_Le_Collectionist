@@ -23,25 +23,15 @@ end
 puts 'Finished!'
 
 
-week_days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']
+week_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
-shops_id = []
-shops = Shop.all
-shops.each do |shop|
-    shops_id << shop.id
+
+Shop.all.each do |shop|
+  week_days.each do |week_day|
+    Day.create(name: week_day, closed: false, shop_id: shop.id)
+  end
 end
 
-puts "creating jours"
-for i in 0..6
-    day = Day.new(
-        name: week_days[i],
-        closed: false,
-        shop_id: shops_id.sample
-        #do some more research on nested seeds
-    )
-    day.save!
-    puts "day id #{day.id} #{day.name} is created"
-end
 puts 'Finished!'
 
 
