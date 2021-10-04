@@ -1,0 +1,7 @@
+<%= simple_form_for [@shop, @day, @slot ] do |f| %>
+  <%= f.input :start_at %>
+  <%#= f.input :closed %>
+  <!-- s'il y a des horaire, on les affiche chaque horaire avec edit et destroy
+  ou un boutton ajouter un horaire -->
+  <%= f.submit "Submit slots", class: "btn btn-primary" %>
+<% end %>

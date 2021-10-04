@@ -26,6 +26,7 @@ puts 'Finished!'
 week_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
 
+
 Shop.all.each do |shop|
   week_days.each do |week_day|
     Day.create(name: week_day, closed: true, shop_id: shop.id)
@@ -33,6 +34,18 @@ Shop.all.each do |shop|
 end
 
 puts 'Finished!'
+
+# slot1 = ['10:30', '15:00']
+# slot2 = ['17:00', '20:00']
+# slot3 = ['17:00', '20:00']
+
+# Shop.all.each do |shop|
+#   week_days.each do |week_day|
+#     Day.create(name: week_day, closed: true, shop_id: shop.id)
+#   end
+# end
+
+
 
 
 
