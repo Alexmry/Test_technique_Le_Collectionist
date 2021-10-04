@@ -7,6 +7,9 @@ class SlotsController < ApplicationController
   end
 
   def create
+    @slot = Slot.create(slot_params)
+    @slot.save
+    redirect_to shop_path(@shop)
   end
 
   def edit
@@ -23,5 +26,9 @@ class SlotsController < ApplicationController
 
   def find_shop
     @shop = Shop.find(params[:shop_id])
+  end
+
+  def slot_params
+    params.require(:slot).permit(:start_at, :end_at)
   end
 end
