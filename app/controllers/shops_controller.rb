@@ -9,7 +9,6 @@ class ShopsController < ApplicationController
     @days = @shop.days
   end
 
-
   private
 
   def set_shop

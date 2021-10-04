@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-puts 'Creating 100 fake shops...'
+puts 'Creating 10 fake shops...'
 Shop.destroy_all
 puts 'Data base is clean'
 
@@ -24,26 +24,43 @@ puts 'Finished!'
 
 
 week_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-
-
+openning_morning = mytime.strftime("%H:%M")
+closing_morning = mytime.strftime("%H:%M")
 
 Shop.all.each do |shop|
   week_days.each do |week_day|
     Day.create(name: week_day, closed: true, shop_id: shop.id)
+    Day.all.each do |day_instance|
+      Slot.create(start_at: openning_morning, end_at: closing_morning, shop_id: shop.id, days_id: day_instance.id)
+    end
   end
 end
 
-puts 'Finished!'
 
-# slot1 = ['10:30', '15:00']
-# slot2 = ['17:00', '20:00']
-# slot3 = ['17:00', '20:00']
 
 # Shop.all.each do |shop|
 #   week_days.each do |week_day|
 #     Day.create(name: week_day, closed: true, shop_id: shop.id)
 #   end
 # end
+
+
+# Shop.all.each do |shop|
+#   week_days.each do |week_day|
+#     Day.create(name: week_day, closed: true, shop_id: shop.id)
+#   end
+#   Day.all.each do |day_instance|
+#     Slot.create(start_at: openning_morning, end_at: closing_morning, shop_id: shop.id, day_id: day.id)
+#   end
+# end
+
+puts 'Finished!'
+
+
+
+
+
+
 
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_03_083903) do
+ActiveRecord::Schema.define(version: 2021_10_04_160552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 2021_10_03_083903) do
   create_table "slots", force: :cascade do |t|
     t.time "start_at"
     t.time "end_at"
-    t.bigint "days_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["days_id"], name: "index_slots_on_days_id"
+    t.bigint "day_id", null: false
+    t.index ["day_id"], name: "index_slots_on_day_id"
   end
 
   add_foreign_key "days", "shops"
-  add_foreign_key "slots", "days", column: "days_id"
+  add_foreign_key "slots", "days"
 end
