@@ -28,7 +28,7 @@ week_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
 
 Shop.all.each do |shop|
   week_days.each do |week_day|
-    Day.create(name: week_day, closed: false, shop_id: shop.id)
+    Day.create(name: week_day, closed: true, shop_id: shop.id)
   end
 end
 
