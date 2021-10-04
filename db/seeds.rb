@@ -24,14 +24,14 @@ puts 'Finished!'
 
 
 week_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-openning_morning = mytime.strftime("%H:%M")
-closing_morning = mytime.strftime("%H:%M")
+openning_morning = Time.now.strftime("%H:%M")
+closing_morning = Time.now.strftime("%H:%M")
 
 Shop.all.each do |shop|
   week_days.each do |week_day|
     Day.create(name: week_day, closed: true, shop_id: shop.id)
     Day.all.each do |day_instance|
-      Slot.create(start_at: openning_morning, end_at: closing_morning, shop_id: shop.id, days_id: day_instance.id)
+      Slot.create(start_at: openning_morning, end_at: closing_morning, day_id: day_instance.id)
     end
   end
 end
