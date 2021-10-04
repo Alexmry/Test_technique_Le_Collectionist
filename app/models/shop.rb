@@ -3,6 +3,7 @@ class Shop < ApplicationRecord
 
   # jour actuel en premier, et en gras
 
-
+  # def display_slot(day)
+  # end
 
 end

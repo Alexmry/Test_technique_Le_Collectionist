@@ -20,7 +20,7 @@ puts 'Data base is clean'
   shop.save!
   puts "shop #{shop.id} is created"
 end
-puts 'Finished!'
+
 
 
 week_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
@@ -30,31 +30,22 @@ closing_morning = Time.now.strftime("%H:%M")
 Shop.all.each do |shop|
   week_days.each do |week_day|
     Day.create(name: week_day, closed: true, shop_id: shop.id)
-    Day.all.each do |day_instance|
-      Slot.create(start_at: openning_morning, end_at: closing_morning, day_id: day_instance.id)
+    Day.all.each do |day|
+      Slot.create(start_at: openning_morning, end_at: closing_morning, day_id: day.id)
+      puts "slot created"
     end
   end
 end
 
-
-
-# Shop.all.each do |shop|
-#   week_days.each do |week_day|
-#     Day.create(name: week_day, closed: true, shop_id: shop.id)
-#   end
-# end
-
-
-# Shop.all.each do |shop|
-#   week_days.each do |week_day|
-#     Day.create(name: week_day, closed: true, shop_id: shop.id)
-#   end
-#   Day.all.each do |day_instance|
-#     Slot.create(start_at: openning_morning, end_at: closing_morning, shop_id: shop.id, day_id: day.id)
-#   end
-# end
-
 puts 'Finished!'
+
+
+# Shop.all.each do |shop|
+#   week_days.each do |week_day|
+#     Day.create(name: week_day, closed: true, shop_id: shop.id)
+#   end
+# end
+
 
 
 

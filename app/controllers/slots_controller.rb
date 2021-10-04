@@ -8,6 +8,8 @@ class SlotsController < ApplicationController
 
   def create
     @slot = Slot.create(slot_params)
+
+    # @slot.day = day
     @slot.save
     redirect_to shop_path(@shop)
   end
@@ -15,8 +17,6 @@ class SlotsController < ApplicationController
   def edit
   end
 
-  def update
-  end
 
   private
 
@@ -29,6 +29,6 @@ class SlotsController < ApplicationController
   end
 
   def slot_params
-    params.require(:slot).permit(:start_at, :end_at)
+    params.require(:slot).permit(:start_at, :end_at, :day_id)
   end
 end
