@@ -7,14 +7,17 @@ class SlotsController < ApplicationController
   end
 
   def create
-    @slot = Slot.create(slot_params)
+    @slot = Slot.new(slot_params)
 
-    # @slot.day = day
+    @slot.day = @day
     @slot.save
     redirect_to shop_path(@shop)
   end
 
   def edit
+  end
+
+  def update
   end
 
 

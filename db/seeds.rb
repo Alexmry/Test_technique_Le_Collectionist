@@ -24,16 +24,14 @@ end
 
 
 week_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-openning_morning = Time.now.strftime("%H:%M")
-closing_morning = Time.now.strftime("%H:%M")
+opening_morning = Time.new(2021, 12, 30, 8, 30, 0)
+closing_morning = Time.new(2021, 12, 30, 12, 30, 0)
 
 Shop.all.each do |shop|
   week_days.each do |week_day|
-    Day.create(name: week_day, closed: true, shop_id: shop.id)
-    Day.all.each do |day|
-      Slot.create(start_at: openning_morning, end_at: closing_morning, day_id: day.id)
+    current_day = Day.create(name: week_day, closed: true, shop_id: shop.id)
+      Slot.create(start_at: opening_morning, end_at: closing_morning, day_id: current_day.id)
       puts "slot created"
-    end
   end
 end
 

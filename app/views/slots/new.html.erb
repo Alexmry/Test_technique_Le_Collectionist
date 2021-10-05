@@ -1,5 +1,6 @@
 <%= simple_form_for [@shop, @day, @slot ] do |f| %>
   <%= f.input :start_at %>
   <%= f.input :end_at %>
+  <%= hidden_field_tag :day_id %>
   <%= f.submit "Submit slots", class: "btn btn-primary" %>
 <% end %>
