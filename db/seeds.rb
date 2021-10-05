@@ -9,6 +9,8 @@ require 'faker'
 
 puts 'Creating 10 fake shops...'
 Shop.destroy_all
+Day.destroy_all
+Slot.destroy_all
 puts 'Data base is clean'
 
 
@@ -28,21 +30,18 @@ opening_morning = Time.new(2021, 12, 30, 8, 30, 0)
 closing_morning = Time.new(2021, 12, 30, 12, 30, 0)
 
 Shop.all.each do |shop|
+  #pour toutes les shops
   week_days.each do |week_day|
+    #tous les jours
     current_day = Day.create(name: week_day, closed: true, shop_id: shop.id)
       Slot.create(start_at: opening_morning, end_at: closing_morning, day_id: current_day.id)
-      puts "slot created"
+      # on crée des slots
+      puts "slot created #{current_day.id}"
   end
 end
 
 puts 'Finished!'
 
-
-# Shop.all.each do |shop|
-#   week_days.each do |week_day|
-#     Day.create(name: week_day, closed: true, shop_id: shop.id)
-#   end
-# end
 
 
 

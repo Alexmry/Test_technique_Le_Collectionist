@@ -4,6 +4,7 @@ class SlotsController < ApplicationController
 
   def new
     @slot = Slot.new
+    # mettre ca dans le edit de shop show pour une meilleur UX
   end
 
   def create
@@ -12,6 +13,7 @@ class SlotsController < ApplicationController
     @slot.day = @day
     @slot.save
     redirect_to shop_path(@day.shop.id)
+    # mettre ca dans le edit de shop show pour une meilleur UX
   end
 
   def edit
