@@ -3,7 +3,7 @@
 <ul>
   <% @days.each do |day| %>
     <%#= link_to edit_shop_day_path(@shop,day) do %>
-      <li><%= t("week_days.#{day.name}").capitalize %> : <%= day.closed == false ? "" : "fermé" %> <%#= day.display_slot(day) %> </li>
+      <li><%= t("week_days.#{day.name}").capitalize %> : <%= day.closed == false ? "#{day.display_slot(day)}" : "fermé" %></li>
     <%# end %>
   <% end %>
 </ul>
