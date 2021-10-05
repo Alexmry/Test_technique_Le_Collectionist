@@ -20,6 +20,12 @@ class SlotsController < ApplicationController
   def update
   end
 
+  def destroy
+    @slot = Slot.find(params[:id])
+    @slot.destroy
+    redirect_to shop_path(@day.shop.id)
+  end
+
 
   private
 
