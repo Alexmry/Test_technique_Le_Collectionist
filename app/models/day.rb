@@ -4,8 +4,12 @@ class Day < ApplicationRecord
   # jour actuel en premier, et en gras
 
   def display_slot(day)
-    morning = day.slots.all
-    #day.slots.all.Time.now.strftime("%H:%M")
+    # day_slots = []
+    opening_morning = day.slots.first.start_at.strftime("%H:%M")
+    # day.slots.all.each do |slot|
+    #   day_slots << slot.strftime("%H:%M")
+    # end
+    # return day_slots
   end
 end
 
