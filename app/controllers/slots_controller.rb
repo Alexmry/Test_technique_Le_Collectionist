@@ -1,6 +1,6 @@
 class SlotsController < ApplicationController
-  before_action :find_shop
-  before_action :find_day
+  before_action :find_shop, only: :new
+  before_action :find_day, only: :new
 
   def new
     @slot = Slot.new
@@ -8,10 +8,10 @@ class SlotsController < ApplicationController
 
   def create
     @slot = Slot.new(slot_params)
-
+    @day = Day.find(params[:day_id])
     @slot.day = @day
     @slot.save
-    redirect_to shop_path(@shop)
+    redirect_to shop_path(@day.shop.id)
   end
 
   def edit

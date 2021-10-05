@@ -1,3 +1,3 @@
 class Slot < ApplicationRecord
-  belongs_to :days, optional: true
+  belongs_to :day
 end

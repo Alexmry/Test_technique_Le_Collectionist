@@ -3,6 +3,7 @@ class ShopsController < ApplicationController
 
   def show
     @days = @shop.days
+
   end
 
   def edit
