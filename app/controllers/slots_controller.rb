@@ -28,6 +28,7 @@ class SlotsController < ApplicationController
   def edit
     @slot = Slot.find(params[:id])
     @day = Day.find(@slot.day_id)
+    @day = @slot.day
   end
 
 
