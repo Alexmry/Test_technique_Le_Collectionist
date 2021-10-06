@@ -1,7 +1,7 @@
 class DaysController < ApplicationController
-  before_action :find_shop, except: :edit
 
   def update
+    @shop = Shop.find(params[:shop_id])
     @day = Day.find(params[:id])
     @shop = Shop.find(@day.shop_id)
     @day.update(day_params)
@@ -11,13 +11,10 @@ class DaysController < ApplicationController
   def edit
     @day = Day.find(params[:id])
     @shop = Shop.find(@day.shop_id)
+    # @slot = Slot.find(@day.slots.ids)
   end
 
   private
-
-  def find_shop
-    @shop = Shop.find(params[:shop_id])
-  end
 
   def day_params
     params.require(:day).permit(:name, :closed)

@@ -3,11 +3,14 @@ class ShopsController < ApplicationController
 
   def show
     @days = @shop.days
-
+    # @day = Day.find(params[:day_id])
+    # @slots = @day.slots
   end
 
   def edit
     @days = @shop.days
+    # @day = Day.find(params[:day_id])
+    # @slots = @day.slots
   end
 
   private

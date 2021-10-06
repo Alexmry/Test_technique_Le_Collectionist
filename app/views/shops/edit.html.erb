@@ -5,5 +5,9 @@
     <%= link_to edit_shop_day_path(@shop,day) do %>
       <li><%= t("week_days.#{day.name}").capitalize %> : <%= day.closed == false ? "#{day.display_slot(day)}" : "fermé" %></li>
     <% end %>
+
+    <%= link_to 'edit slots', edit_shop_day_slot_path(@shop,day), class: "btn btn-primary"  %>
+    <%#= link_to 'edit slots', edit_shop_day_slot_path(@shop,day, @slot), class: "btn btn-primary"  %>
+    <%#= link_to 'edit slots', edit_shop_day_slot_path(day, @slot), class: "btn btn-primary"  %>
   <% end %>
 </ul>

@@ -1,6 +1,6 @@
 class SlotsController < ApplicationController
-  before_action :find_shop, only: :new
-  before_action :find_day, only: :new
+  before_action :find_shop, only: [:new, :edit]
+  before_action :find_day, only: [:new, :edit]
 
   def new
     @slot = Slot.new
@@ -16,11 +16,35 @@ class SlotsController < ApplicationController
     # mettre ca dans le edit de shop show pour une meilleur UX
   end
 
-  def edit
+  def update
+    @shop = Shop.find(params[:shop_id])
+    @day = Day.find(params[:day_id])
+    @slots = Slot.all
+    @day = Day.find(@slot.day_id)
+    @slot.update(slot_params)
+    redirect_to shop_path(@shop)
   end
 
-  def update
+  def edit
+    @slot = Slot.find(params[:id])
+    @day = Day.find(@slot.day_id)
   end
+
+
+  # def update
+  #   @shop = Shop.find(params[:shop_id])
+  #   @day = Day.find(params[:id])
+  #   @shop = Shop.find(@day.shop_id)
+  #   @day.update(day_params)
+  #   redirect_to shop_path(@shop)
+  # end
+
+  # def edit
+  #   @day = Day.find(params[:id])
+  #   @shop = Shop.find(@day.shop_id)
+  #   # @slot = Slot.find(@day.slots.ids)
+  # end
+
 
   def destroy
     @slot = Slot.find(params[:id])
