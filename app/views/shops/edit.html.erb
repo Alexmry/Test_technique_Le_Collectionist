@@ -1,4 +1,5 @@
 <h2><%= @shop.name %></h2>
+<h2><%= @slot.inspect %></h2>
 
 <ul>
   <% @days.each do |day| %>
@@ -11,3 +12,5 @@
     <%#= link_to 'edit slots', edit_shop_day_slot_path(day, @slot), class: "btn btn-primary"  %>
   <% end %>
 </ul>
+
+
