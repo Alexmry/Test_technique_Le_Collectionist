@@ -1,14 +1,17 @@
 <h2><%= @shop.name %></h2>
-<h2><%= @slot.inspect %></h2>
 
 <ul>
   <% @days.each do |day| %>
-    <%= link_to edit_shop_day_path(@shop,day) do %>
-      <li><%= t("week_days.#{day.name}").capitalize %> : <%= day.closed == false ? "#{day.display_slot(day)}" : "fermé" %></li>
-    <% end %>
 
-    <%#= link_to 'edit slots', edit_shop_day_slot_path(@shop,day), class: "btn btn-primary"  %>
-    <%= link_to 'edit slots', edit_shop_day_slot_path(@shop,day, @slot), class: "btn btn-primary"  %>
+      <li>
+        <%= link_to edit_shop_day_path(@shop,day) do %>
+          <%= t("week_days.#{day.name}").capitalize %> :
+        <% end %>
+        <%= link_to shop_day_slots_path(@shop,day) do %>
+          <%= day.closed == false ? "#{day.display_slot(day)}" : "fermé" %></li>
+        <% end %>
+    <%= link_to 'edit slots', edit_shop_day_slot_path(@shop,day), class: "btn btn-primary"  %>
+    <%#= link_to 'edit slots', edit_shop_day_slot_path(@shop,day, @slot), class: "btn btn-primary"  %>
     <%#= link_to 'edit slots', edit_shop_day_slot_path(day, @slot), class: "btn btn-primary"  %>
   <% end %>
 </ul>

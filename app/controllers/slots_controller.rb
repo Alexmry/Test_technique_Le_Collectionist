@@ -2,6 +2,12 @@ class SlotsController < ApplicationController
   before_action :find_shop, only: [:new, :edit]
   before_action :find_day, only: [:new, :edit]
 
+  def index
+    @shop = Shop.find(params[:shop_id])
+    @day = Day.find(params[:day_id])
+    @slots = @day.slots
+  end
+
   def new
     @slot = Slot.new
     # mettre ca dans le edit de shop show pour une meilleur UX
@@ -17,18 +23,18 @@ class SlotsController < ApplicationController
   end
 
   def update
-    @shop = Shop.find(params[:shop_id])
-    @day = Day.find(params[:day_id])
-    @slots = Slot.all
-    @day = Day.find(@slot.day_id)
-    @slot.update(slot_params)
-    redirect_to shop_path(@shop)
+    puts "$$$$$$$$$$$$$$$$$$$$$$$"
+    puts params
+    # @shop = Shop.find(params[:shop_id])
+    # @day = Day.find(params[:day_id])
+    # @slot.update(slot_params)
+    # redirect_to shop_path(@shop)
   end
 
   def edit
-    @slot = Slot.find(params[:id])
-    @day = Day.find(@slot.day_id)
-    @day = @slot.day
+    @day = Day.find(params[:day_id])
+    @shop = @day.shop
+    @slots = @day.slots
   end
 
 
