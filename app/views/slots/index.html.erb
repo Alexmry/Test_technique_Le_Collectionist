@@ -5,6 +5,10 @@
 
 <ul>
   <% @slots.each do |slot| %>
-    <li> <%= slot.start_at.strftime("%H:%M") %> - <%= slot.end_at.strftime("%H:%M") %> </li>
+    <li>
+      <%= link_to edit_shop_day_slot_path(@shop,@day, slot) do %>
+        <%= slot.start_at.strftime("%H:%M") %> - <%= slot.end_at.strftime("%H:%M") %>
+      <% end %>
+    </li>
   <% end %>
 </ul>

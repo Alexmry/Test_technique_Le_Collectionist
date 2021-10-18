@@ -11,7 +11,7 @@
           <%= day.closed == false ? "#{day.display_slot(day)}" : "fermé" %>
         <% end %>
       </li>
-    <%= link_to 'edit slots', edit_shop_day_slot_path(@shop,day), class: "btn btn-primary"  %>
+    <%#= link_to 'edit slots', edit_shop_day_slot_path(@shop,day), class: "btn btn-primary"  %>
     <%#= link_to 'edit slots', edit_shop_day_slot_path(@shop,day, @slot), class: "btn btn-primary"  %>
     <%#= link_to 'edit slots', edit_shop_day_slot_path(day, @slot), class: "btn btn-primary"  %>
   <% end %>

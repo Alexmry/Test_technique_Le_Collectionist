@@ -34,7 +34,9 @@ class SlotsController < ApplicationController
   def edit
     @day = Day.find(params[:day_id])
     @shop = @day.shop
-    @slots = @day.slots
+    # @slots = @day.slots
+    @slot = Slot.find(params[:id])
+
   end
 
 

@@ -1,7 +1,7 @@
-<% @slots.each do |slot| %>
-  <%= simple_form_for [@shop, @day, slot ] do |f| %>
+<%# @slots.each do |slot| %>
+  <%= simple_form_for [@shop, @day, @slot ] do |f| %>
     <%= f.input :start_at %>
     <%= f.input :end_at %>
     <%= f.submit "Submit slots", class: "btn btn-primary" %>
   <% end %>
-<% end %>
+<%# end %>
