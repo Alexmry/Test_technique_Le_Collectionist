@@ -3,3 +3,8 @@
 <p>hellooooooooooooo</p>
 <p>hellooooooooooooo</p>
 <p>hellooooooooooooo</p>
+
+
+<% @slots.each do |slot| %>
+  <p> <%= slot.start_at %> - <%= slot.end_at %> </p>
+<% end %>
