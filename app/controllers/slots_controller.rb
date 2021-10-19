@@ -56,9 +56,14 @@ class SlotsController < ApplicationController
 
 
   def destroy
+    @shop = Shop.find(params[:shop_id])
+    @day = Day.find(params[:day_id])
     @slot = Slot.find(params[:id])
     @slot.destroy
-    redirect_to shop_path(@day.shop.id)
+    # redirect_to shop_path(@day.shop.id)
+    # redirect_to shop_path(@shop)
+    redirect_to root_path
+    # redirect_to shop_day_slots_path(@shop,@day)
   end
 
 

@@ -9,6 +9,7 @@
       <%= link_to edit_shop_day_slot_path(@shop,@day, slot) do %>
         <%= slot.start_at.strftime("%H:%M") %> - <%= slot.end_at.strftime("%H:%M") %>
       <% end %>
+      <%= link_to "Delete", shop_day_slot_path(@shop,@day, slot), method: :delete, data: { confirm: "U-sure?" }, class:'btn btn-outline-danger' %>
     </li>
   <% end %>
 </ul>

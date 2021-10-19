@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :shops, only: [:home, :show, :edit] do
     resources :days, only: [:index, :edit, :update] do
-      resources :slots, only: [:new, :create, :index, :edit, :update]
+      resources :slots
     end
   end
 end
