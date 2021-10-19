@@ -1,7 +1,7 @@
 <p><%= @shop.name %></p>
 <p><%= @shop.name %>' time table</p>
 
-
+<%= link_to 'ADD NEW SLOT',new_shop_day_slot_path(@shop, @day, @slot), class:'btn btn-outline-danger' %>
 
 <ul>
   <% @slots.each do |slot| %>
