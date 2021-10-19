@@ -18,7 +18,7 @@ class SlotsController < ApplicationController
     @day = Day.find(params[:day_id])
     @slot.day = @day
     @slot.save
-    redirect_to shop_path(@day.shop.id)
+    redirect_to edit_shop_path(@day.shop.id)
     # mettre ca dans le edit de shop show pour une meilleur UX
   end
 
