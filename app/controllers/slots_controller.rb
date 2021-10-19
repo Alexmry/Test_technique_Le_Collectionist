@@ -25,10 +25,12 @@ class SlotsController < ApplicationController
   def update
     puts "$$$$$$$$$$$$$$$$$$$$$$$"
     puts params
-    # @shop = Shop.find(params[:shop_id])
-    # @day = Day.find(params[:day_id])
-    # @slot.update(slot_params)
+    @shop = Shop.find(params[:shop_id])
+    @day = Day.find(params[:day_id])
+    @slot = Slot.find(params[:id])
+    @slot.update(slot_params)
     # redirect_to shop_path(@shop)
+    redirect_to shop_day_slots_path(@shop,@day)
   end
 
   def edit
