@@ -62,8 +62,8 @@ class SlotsController < ApplicationController
     @slot.destroy
     # redirect_to shop_path(@day.shop.id)
     # redirect_to shop_path(@shop)
-    redirect_to root_path
-    # redirect_to shop_day_slots_path(@shop,@day)
+    # redirect_to root_path
+    redirect_to shop_day_slots_path(@shop,@day)
   end
 
 
